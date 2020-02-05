@@ -33,7 +33,7 @@ def _format_curl_https_proxy_opt():
 
 
 def install():
-    _login()
+    print("Hop")
 
 
 def _load_json_file(filepath):
