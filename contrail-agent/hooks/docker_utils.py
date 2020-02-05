@@ -18,7 +18,7 @@ from charmhelpers.fetch import apt_install, apt_update
 
 config = config()
 
-# DOCKER_ADD_PACKAGES = ["docker-compose"]
+DOCKER_ADD_PACKAGES = ["docker-compose"]
 DOCKER_CLI = "/usr/bin/docker"
 DOCKER_COMPOSE_CLI = "docker-compose"
 
@@ -31,9 +31,6 @@ def _format_curl_https_proxy_opt():
         return '--proxy {}'.format(https_proxy) if https_proxy else ''
     return ''
 
-def install():
-    from charms.reactive import main
-    main()
 
 # def install():
 #     docker_runtime = config.get("docker_runtime")
@@ -62,7 +59,7 @@ def install():
 #             "{} | sudo apt-key add -"
 #             "".format(_format_curl_https_proxy_opt(), docker_key_url)
 #         ]
-#         check_output(cmd)
+#         check_output(cmd)`
 #     arch = "amd64"
 #     dist = platform.linux_distribution()[2].strip()
 #     if docker_repo:
@@ -243,22 +240,19 @@ def config_changed():
     if config.changed("http_proxy") or config.changed("https_proxy") or config.changed("no_proxy"):
         _render_config()
         changed = True
-    if config.changed("docker-registry") or config.changed("docker-registry-insecure"):
-        _apply_insecure()
-        changed = True
     if config.changed("docker-user") or config.changed("docker-password"):
         _login()
         changed = True
     return changed
 
 
-# def _render_config():
-#     # From https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
-#     if len(config.get('no_proxy')) > 2023:
-#         raise Exception('no_proxy longer than 2023 chars.')
-#     render('docker-proxy.conf', '/etc/systemd/system/docker.service.d/docker-proxy.conf', config)
-#     check_call(['systemctl', 'daemon-reload'])
-#     service_restart('docker')
+def _render_config():
+    # From https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
+    if len(config.get('no_proxy')) > 2023:
+        raise Exception('no_proxy longer than 2023 chars.')
+    render('docker-proxy.conf', '/etc/systemd/system/docker.service.d/docker-proxy.conf', config)
+    check_call(['systemctl', 'daemon-reload'])
+    service_restart('docker')
 
 
 def render_logging():
