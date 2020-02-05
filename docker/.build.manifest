@@ -1,0 +1,529 @@
+{
+  "layers": [
+    {
+      "rev": "fcdcea4e5de3e1556c24e6704607862d0ba00a56",
+      "url": "layer:options"
+    },
+    {
+      "rev": "07c858e3cd3434c775a43a4d60068f1dac6cb82b",
+      "url": "layer:basic"
+    },
+    {
+      "rev": "527dd64fc4b9a6b0f8d80a3c2c0b865155050275",
+      "url": "layer:debug"
+    },
+    {
+      "rev": "3c7521ef5291e5e0db6a6eadd5fea85e399c5d10",
+      "url": "layer:container-runtime-common"
+    },
+    {
+      "rev": "5df814cc7e176876c8d6b38db2c8619cf9a8c3a5",
+      "url": "docker"
+    },
+    {
+      "rev": "6f927f10b97f45c566481cf57a29d433f17373e1",
+      "url": "interface:container-runtime"
+    },
+    {
+      "rev": "365ec9f348ccd561a9ec3e084c826f134676439e",
+      "url": "interface:docker-registry"
+    }
+  ],
+  "signatures": {
+    ".build.manifest": [
+      "build",
+      "dynamic",
+      "unchecked"
+    ],
+    ".gitignore": [
+      "layer:basic",
+      "static",
+      "0da5c4dcda27cd6406e5bb81cbf68ddccaf728ac764ec15053a165c1449d87d9"
+    ],
+    "LICENSE": [
+      "layer:container-runtime-common",
+      "static",
+      "c67d5f530080ecc4136a22d0543049b71016ea5dbbaa1d02b6d128d2d8fe3888"
+    ],
+    "Makefile": [
+      "layer:basic",
+      "static",
+      "b7ab3a34e5faf79b96a8632039a0ad0aa87f2a9b5f0ba604e007cafb22190301"
+    ],
+    "README.md": [
+      "docker",
+      "static",
+      "d728b47184b5ef1f0e026b260b20c77829e85e5dabef117d361c216c830899d7"
+    ],
+    "actions.yaml": [
+      "docker",
+      "dynamic",
+      "8eceb0d540d3d25814e12710419c6ac32970075a6f3a6c42d0eb3e68415ca82d"
+    ],
+    "actions/clean-containers": [
+      "docker",
+      "static",
+      "bb65a39fa8310c215754e9d867be0062943ab33ecc1c058b5d234eb136725b58"
+    ],
+    "actions/clean-images": [
+      "docker",
+      "static",
+      "1f1466a04d11b2c6dfe3c46a7f6f6a24bacfcc44220c79480c9d94871127e0a3"
+    ],
+    "actions/debug": [
+      "layer:debug",
+      "static",
+      "db0a42dae4c5045b2c06385bf22209dfe0e2ded55822ef847d84b01d9ff2b046"
+    ],
+    "actions/upgrade-docker": [
+      "docker",
+      "static",
+      "87d9114c2dfd62a27604af3e3595b5713d1f8d76fe96d388f7e923d35350bd91"
+    ],
+    "bin/charm-env": [
+      "layer:basic",
+      "static",
+      "458c53532c19ee357cbf4209ccc7d811810718ba0ea3b0588b3d3ef040a44b8e"
+    ],
+    "bin/layer_option": [
+      "layer:options",
+      "static",
+      "e959bf29da4c5edff28b2602c24113c4df9e25cdc9f2aa3b5d46c8577b2a40cc"
+    ],
+    "config.yaml": [
+      "docker",
+      "dynamic",
+      "cbb514eaa6076f84ec4d00992a02a7c12b9e4400b5a865bc5aff3ac5ddb540ab"
+    ],
+    "copyright": [
+      "layer:basic",
+      "static",
+      "f6740d66fd60b60f2533d9fcb53907078d1e20920a0219afce7182e2a1c97629"
+    ],
+    "copyright.layer-options": [
+      "layer:options",
+      "static",
+      "f6740d66fd60b60f2533d9fcb53907078d1e20920a0219afce7182e2a1c97629"
+    ],
+    "debug-scripts/charm-unitdata": [
+      "layer:debug",
+      "static",
+      "c952b9d31f3942e4e722cb3e70f5119707b69b8e76cc44e2e906bc6d9aef49b7"
+    ],
+    "debug-scripts/filesystem": [
+      "layer:debug",
+      "static",
+      "d29cc8687f4422d024001c91b1ac756ee6bf8a2a125bc98db1199ba775eb8fd7"
+    ],
+    "debug-scripts/juju-logs": [
+      "layer:debug",
+      "static",
+      "d260b35753a917368cb8c64c1312546a0a40ef49cba84c75bc6369549807c55e"
+    ],
+    "debug-scripts/juju-network-get": [
+      "layer:debug",
+      "static",
+      "6d849a1f8e6569bd0d5ea38299f7937cb8b36a5f505e3532f6c756eabeb8b6c5"
+    ],
+    "debug-scripts/network": [
+      "layer:debug",
+      "static",
+      "714afae5dcb45554ff1f05285501e3b7fcc656c8de51217e263b93dab25a9d2e"
+    ],
+    "debug-scripts/packages": [
+      "layer:debug",
+      "static",
+      "e8177102dc2ca853cb9272c1257cf2cfd5253d2a074e602d07c8bc4ea8e27c75"
+    ],
+    "debug-scripts/sysctl": [
+      "layer:debug",
+      "static",
+      "990035b320e09cc2228e1f2f880e795d51118b2959339eacddff9cbb74349c6a"
+    ],
+    "debug-scripts/systemd": [
+      "layer:debug",
+      "static",
+      "23ddf533198bf5b1ce723acde31ada806aab8539292b514c721d8ec08af74106"
+    ],
+    "hooks/config-changed": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/docker-registry-relation-broken": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/docker-registry-relation-changed": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/docker-registry-relation-departed": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/docker-registry-relation-joined": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/docker-relation-broken": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/docker-relation-changed": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/docker-relation-departed": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/docker-relation-joined": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/hook.template": [
+      "layer:basic",
+      "static",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/install": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/leader-elected": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/leader-settings-changed": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/post-series-upgrade": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/pre-series-upgrade": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/relations/container-runtime/.gitignore": [
+      "interface:container-runtime",
+      "static",
+      "a2ebfecdb6c1b58267fbe97e6e2ac02c2b963df7673fc1047270f0f0cff16732"
+    ],
+    "hooks/relations/container-runtime/LICENSE": [
+      "interface:container-runtime",
+      "static",
+      "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    ],
+    "hooks/relations/container-runtime/README.md": [
+      "interface:container-runtime",
+      "static",
+      "44273265818229d2c858c3af0e0eee3a7df05aaa9ab20d28c3872190d4b48611"
+    ],
+    "hooks/relations/container-runtime/__init__.py": [
+      "interface:container-runtime",
+      "static",
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "hooks/relations/container-runtime/interface.yaml": [
+      "interface:container-runtime",
+      "static",
+      "e5343dcb11a6817a6050df4ea1c463eeaa0dd4777098566d4e27b056775426c6"
+    ],
+    "hooks/relations/container-runtime/provides.py": [
+      "interface:container-runtime",
+      "static",
+      "4e818da222f507604179a828629787a1250083c847277f6b5b8e028cfbbb6d06"
+    ],
+    "hooks/relations/container-runtime/requires.py": [
+      "interface:container-runtime",
+      "static",
+      "95285168b02f1f70be15c03098833a85e60fa1658ed72a46acd42e8e85ded761"
+    ],
+    "hooks/relations/docker-registry/.gitignore": [
+      "interface:docker-registry",
+      "static",
+      "83b4ca18cc39800b1d260b5633cd0252e21501b21e7c33e718db44f1a68a09b8"
+    ],
+    "hooks/relations/docker-registry/LICENSE": [
+      "interface:docker-registry",
+      "static",
+      "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    ],
+    "hooks/relations/docker-registry/README.md": [
+      "interface:docker-registry",
+      "static",
+      "a42f9e72af9a6fad058e8f156e79aeaadccf3e2b03b5b7dc750704b168f4347c"
+    ],
+    "hooks/relations/docker-registry/__init__.py": [
+      "interface:docker-registry",
+      "static",
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "hooks/relations/docker-registry/interface.yaml": [
+      "interface:docker-registry",
+      "static",
+      "29816ed0d72772b26108012481b64db1385ff42d3349fa175bb05331ca0f933c"
+    ],
+    "hooks/relations/docker-registry/provides.py": [
+      "interface:docker-registry",
+      "static",
+      "618cc1b19c2e77106363938931a342918306d731be61665167bad4615a30d9c7"
+    ],
+    "hooks/relations/docker-registry/requires.py": [
+      "interface:docker-registry",
+      "static",
+      "9db322b76a6bbdc15b36fba077bddbff7dfc6dbfe9c245fed548c00e6c354578"
+    ],
+    "hooks/start": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/stop": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/update-status": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "hooks/upgrade-charm": [
+      "layer:basic",
+      "dynamic",
+      "2b693cb2a11594a80cc91235c2dc219a0a6303ae62bee8aa87eb35781f7158f7"
+    ],
+    "icon.svg": [
+      "docker",
+      "static",
+      "fb0b2e6eb416cac369d2d7f1a56db005f732f9080a801702869f6ac6c6f0ba37"
+    ],
+    "layer.yaml": [
+      "docker",
+      "dynamic",
+      "f3b68b3d29824cead8e2f3c39f02236a62bed904335aa5e602cbe5dfe50f8cd3"
+    ],
+    "lib/charms/layer/__init__.py": [
+      "layer:basic",
+      "static",
+      "dfe0d26c6bf409767de6e2546bc648f150e1b396243619bad3aa0553ab7e0e6f"
+    ],
+    "lib/charms/layer/basic.py": [
+      "layer:basic",
+      "static",
+      "445652dbaa1f0b84a7215da185bcbdff097bb9bbbce11b4c2dbbff90f77719a9"
+    ],
+    "lib/charms/layer/container_runtime_common.py": [
+      "layer:container-runtime-common",
+      "static",
+      "1c6745c0966687d82da9dc8d10add74389c2b7585149afcb81f59405bde227f3"
+    ],
+    "lib/charms/layer/execd.py": [
+      "layer:basic",
+      "static",
+      "fda8bd491032db1db8ddaf4e99e7cc878c6fb5432efe1f91cadb5b34765d076d"
+    ],
+    "lib/charms/layer/options.py": [
+      "layer:options",
+      "static",
+      "8ae7a07d22542fc964f2d2bee8219d1c78a68dace70a1b38d36d4aea47b1c3b2"
+    ],
+    "lib/debug_script.py": [
+      "layer:debug",
+      "static",
+      "a4d56f2d3e712b1b5cadb657c7195c6268d0aac6d228991049fd769e0ddaf453"
+    ],
+    "metadata.yaml": [
+      "docker",
+      "dynamic",
+      "2d8cc8aedbdeb17fdf34b577ee2e22dc230ddcbe8e37916d582127fa30a8d424"
+    ],
+    "reactive/__init__.py": [
+      "layer:basic",
+      "static",
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "reactive/container-runtime-common.py": [
+      "layer:container-runtime-common",
+      "static",
+      "f97d11de2c42d22fb8b858b44c38e1064a9057e5dafa7925bc6b24dd885f2aa3"
+    ],
+    "reactive/docker.py": [
+      "docker",
+      "static",
+      "e5f0a215d1b3fef09ca027a0d989afaaca117d92b771cde39320cf4eba4510ca"
+    ],
+    "requirements.txt": [
+      "layer:basic",
+      "static",
+      "0f1c70d27e26005a96d66ad54482877ae20f7737693c833e29dd72bd6ac24892"
+    ],
+    "scripts/enable_grub_cgroups.sh": [
+      "layer:container-runtime-common",
+      "static",
+      "08f39868716900be03e2612a63d5fbbd661599484f05f5164c5d794415cfa260"
+    ],
+    "templates/docker.defaults": [
+      "docker",
+      "static",
+      "f8bd601c9c79b482665b2d9fd195fecd5ea962812d7017111fb5614d1a58a023"
+    ],
+    "templates/docker.systemd": [
+      "docker",
+      "static",
+      "7a89328c7d18d542d1dcd3a5c43ad6d7e5e4bb5fe1a73c08ff53046bdf39c5dd"
+    ],
+    "tests/test_cidr_notation.py": [
+      "layer:container-runtime-common",
+      "static",
+      "43b50e68b31a1ce05da8f69c4982f56d67b4e70a50d8b0c36ea180290fe31e3c"
+    ],
+    "tests/test_merge_config.py": [
+      "layer:container-runtime-common",
+      "static",
+      "70724d58f5af95665f00dd15b3d08771350d33374b000324c9be6b4be607f75f"
+    ],
+    "version": [
+      "docker",
+      "dynamic",
+      "d80e5f095cb4bf877d4260e379c5aa1ccb70e84097c46808c5efefe02c43f423"
+    ],
+    "wheelhouse/Jinja2-2.10.1.tar.gz": [
+      "layer:basic",
+      "dynamic",
+      "065c4f02ebe7f7cf559e49ee5a95fb800a9e4528727aec6f24402a5374c65013"
+    ],
+    "wheelhouse/Jinja2-2.11.1.tar.gz": [
+      "docker",
+      "dynamic",
+      "93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250"
+    ],
+    "wheelhouse/MarkupSafe-1.1.1.tar.gz": [
+      "docker",
+      "dynamic",
+      "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
+    ],
+    "wheelhouse/PyYAML-5.2.tar.gz": [
+      "layer:basic",
+      "dynamic",
+      "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c"
+    ],
+    "wheelhouse/PyYAML-5.3.tar.gz": [
+      "docker",
+      "dynamic",
+      "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
+    ],
+    "wheelhouse/Tempita-0.5.2.tar.gz": [
+      "docker",
+      "dynamic",
+      "cacecf0baa674d356641f1d406b8bff1d756d739c46b869a54de515d08e6fc9c"
+    ],
+    "wheelhouse/certifi-2019.11.28.tar.gz": [
+      "docker",
+      "dynamic",
+      "25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
+    ],
+    "wheelhouse/chardet-3.0.4.tar.gz": [
+      "docker",
+      "dynamic",
+      "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    ],
+    "wheelhouse/charmhelpers-0.20.8.tar.gz": [
+      "docker",
+      "dynamic",
+      "33462445538ab18ffb9a1abcf75407a8a3aa1d3ef849cf8669a25fc10b7bcd95"
+    ],
+    "wheelhouse/charms.docker-0.1.19.tar.gz": [
+      "docker",
+      "dynamic",
+      "735160e795894e6a007f333a5b755003db1825f4c67b0aaab8f16269656564eb"
+    ],
+    "wheelhouse/charms.reactive-1.3.0.tar.gz": [
+      "layer:basic",
+      "dynamic",
+      "82d2c614c82d64bf56e913990f22663e5de64b99db15838abfd9a064f1cc2f51"
+    ],
+    "wheelhouse/charms.templating.jinja2-1.0.2.tar.gz": [
+      "docker",
+      "dynamic",
+      "8193c6a1d40bdb66fe272c359b4e4780501c658acfaf2b1118c4230927815fe2"
+    ],
+    "wheelhouse/idna-2.8.tar.gz": [
+      "docker",
+      "dynamic",
+      "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+    ],
+    "wheelhouse/netaddr-0.7.19.tar.gz": [
+      "docker",
+      "dynamic",
+      "38aeec7cdd035081d3a4c306394b19d677623bf76fa0913f6695127c7753aefd"
+    ],
+    "wheelhouse/pip-18.1.tar.gz": [
+      "layer:basic",
+      "dynamic",
+      "c0a292bd977ef590379a3f05d7b7f65135487b67470f6281289a94e015650ea1"
+    ],
+    "wheelhouse/pyaml-19.12.0.tar.gz": [
+      "layer:basic",
+      "dynamic",
+      "b3f636b467864319d7ded1558f86bb305b8612a274f5d443a62dc5eceb1b7176"
+    ],
+    "wheelhouse/requests-2.22.0.tar.gz": [
+      "docker",
+      "dynamic",
+      "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
+    ],
+    "wheelhouse/setuptools-20.0.tar.gz": [
+      "docker",
+      "dynamic",
+      "a6f7b295f399fed3de918c4bea9e2053a5fbd9e3a55a6fef7aafe9d1f474866d"
+    ],
+    "wheelhouse/setuptools-41.6.0.zip": [
+      "layer:basic",
+      "dynamic",
+      "6afa61b391dcd16cb8890ec9f66cc4015a8a31a6e1c2b4e0c464514be1a3d722"
+    ],
+    "wheelhouse/setuptools_scm-1.17.0.tar.gz": [
+      "layer:basic",
+      "dynamic",
+      "70a4cf5584e966ae92f54a764e6437af992ba42ac4bca7eb37cc5d02b98ec40a"
+    ],
+    "wheelhouse/six-1.14.0.tar.gz": [
+      "docker",
+      "dynamic",
+      "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    ],
+    "wheelhouse/urllib3-1.25.8.tar.gz": [
+      "docker",
+      "dynamic",
+      "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+    ],
+    "wheelhouse/vcversioner-2.16.0.0.tar.gz": [
+      "docker",
+      "dynamic",
+      "dae60c17a479781f44a4010701833f1829140b1eeccd258762a74974aa06e19b"
+    ],
+    "wheelhouse/wheel-0.33.6.tar.gz": [
+      "layer:basic",
+      "dynamic",
+      "10c9da68765315ed98850f8e048347c3eb06dd81822dc2ab1d4fde9dc9702646"
+    ]
+  }
+}

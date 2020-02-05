@@ -1,0 +1,46 @@
+# Copyright 2015-2016 Canonical Ltd.
+#
+# This file is part of the Leadership Layer for Juju.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 3, as
+# published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranties of
+# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"includes":
+- "layer:basic"
+- "layer:basic"
+- "interface:etcd"
+- "layer:docker"
+- "layer:apt"
+- "layer:basic"
+- "layer:basic"
+- "interface:tls"
+- "layer:leadership"
+- "layer:docker"
+- "layer:flannel"
+- "layer:storage"
+- "layer:tls"
+- "interface:etcd"
+"options":
+  "storage":
+    "storage-driver": "zfs"
+    "mount-point": "/srv/kubernetes"
+  "tls": {}
+  "kubernetes": {}
+  "leadership": {}
+  "basic":
+    "use_venv": !!bool "false"
+    "packages": []
+    "include_system_packages": !!bool "false"
+  "docker":
+    "skip-install": !!bool "false"
+  "flannel": {}
+"repo": "https://github.com/mbruzek/layer-k8s.git"
+"is": "kubernetes"

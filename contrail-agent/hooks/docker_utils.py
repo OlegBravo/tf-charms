@@ -18,7 +18,7 @@ from charmhelpers.fetch import apt_install, apt_update
 
 config = config()
 
-DOCKER_ADD_PACKAGES = ["docker-compose"]
+# DOCKER_ADD_PACKAGES = ["docker-compose"]
 DOCKER_CLI = "/usr/bin/docker"
 DOCKER_COMPOSE_CLI = "docker-compose"
 
@@ -31,46 +31,49 @@ def _format_curl_https_proxy_opt():
         return '--proxy {}'.format(https_proxy) if https_proxy else ''
     return ''
 
-
 def install():
-    docker_runtime = config.get("docker_runtime")
-    if docker_runtime == "apt" or docker_runtime == "auto":
-        docker_package = "docker.io"
-        docker_repo = None
-        docker_key_url = None
-    elif docker_runtime == "upstream":
-        docker_package = "docker.ce"
-        docker_repo = "deb [arch={ARCH}] https://download.docker.com/linux/ubuntu {CODE} stable"
-        docker_key_url = "https://download.docker.com/linux/ubuntu/gpg"
-    else:
-        # custom or default
-        docker_package = config.get("docker_runtime_package") or "docker.ce"
-        docker_repo = (config.get("docker_runtime_repo") or
-                       "deb [arch={ARCH}] https://download.docker.com/linux/ubuntu {CODE} stable")
-        docker_key_url = config.get("docker_runtime_key_url") or "https://download.docker.com/linux/ubuntu/gpg"
+    from charms.reactive import main
+    main()
 
-    apt_install(["apt-transport-https", "ca-certificates", "curl",
-                 "software-properties-common"])
-    if docker_key_url:
-        cmd = [
-            "/bin/bash", "-c",
-            "set -o pipefail ; curl {} "
-            "-fsSL --connect-timeout 10 "
-            "{} | sudo apt-key add -"
-            "".format(_format_curl_https_proxy_opt(), docker_key_url)
-        ]
-        check_output(cmd)
-    arch = "amd64"
-    dist = platform.linux_distribution()[2].strip()
-    if docker_repo:
-        cmd = ("add-apt-repository \"{}\"".format(docker_repo.replace("{ARCH}", arch).replace("{CODE}", dist)))
-        check_output(cmd, shell=True)
-    apt_update()
-    apt_install(docker_package)
-    apt_install(DOCKER_ADD_PACKAGES)
-    _render_config()
-    _apply_insecure()
-    _login()
+# def install():
+#     docker_runtime = config.get("docker_runtime")
+#     if docker_runtime == "apt" or docker_runtime == "auto":
+#         docker_package = "docker.io"
+#         docker_repo = None
+#         docker_key_url = None
+#     elif docker_runtime == "upstream":
+#         docker_package = "docker.ce"
+#         docker_repo = "deb [arch={ARCH}] https://download.docker.com/linux/ubuntu {CODE} stable"
+#         docker_key_url = "https://download.docker.com/linux/ubuntu/gpg"
+#     else:
+#         # custom or default
+#         docker_package = config.get("docker_runtime_package") or "docker.ce"
+#         docker_repo = (config.get("docker_runtime_repo") or
+#                        "deb [arch={ARCH}] https://download.docker.com/linux/ubuntu {CODE} stable")
+#         docker_key_url = config.get("docker_runtime_key_url") or "https://download.docker.com/linux/ubuntu/gpg"
+#
+#     apt_install(["apt-transport-https", "ca-certificates", "curl",
+#                  "software-properties-common"])
+#     if docker_key_url:
+#         cmd = [
+#             "/bin/bash", "-c",
+#             "set -o pipefail ; curl {} "
+#             "-fsSL --connect-timeout 10 "
+#             "{} | sudo apt-key add -"
+#             "".format(_format_curl_https_proxy_opt(), docker_key_url)
+#         ]
+#         check_output(cmd)
+#     arch = "amd64"
+#     dist = platform.linux_distribution()[2].strip()
+#     if docker_repo:
+#         cmd = ("add-apt-repository \"{}\"".format(docker_repo.replace("{ARCH}", arch).replace("{CODE}", dist)))
+#         check_output(cmd, shell=True)
+#     apt_update()
+#     apt_install(docker_package)
+#     apt_install(DOCKER_ADD_PACKAGES)
+#     _render_config()
+#     _apply_insecure()
+#     _login()
 
 
 def _load_json_file(filepath):
@@ -91,25 +94,25 @@ def _save_json_file(filepath, data):
         json.dump(data, f)
 
 
-def _apply_insecure():
-    if not config.get("docker-registry-insecure"):
-        return
-    # NOTE: take just host and port from registry definition
-    docker_registry = config.get("docker-registry").split('/')[0]
-
-    log("Re-configure docker daemon")
-    dc = _load_json_file("/etc/docker/daemon.json")
-
-    cv = dc.get("insecure-registries", list())
-    if docker_registry in cv:
-        return
-    cv.append(docker_registry)
-    dc["insecure-registries"] = cv
-
-    _save_json_file("/etc/docker/daemon.json", dc)
-
-    log("Restarting docker service")
-    service_restart('docker')
+# def _apply_insecure():
+#     if not config.get("docker-registry-insecure"):
+#         return
+#     # NOTE: take just host and port from registry definition
+#     docker_registry = config.get("docker-registry").split('/')[0]
+#
+#     log("Re-configure docker daemon")
+#     dc = _load_json_file("/etc/docker/daemon.json")
+#
+#     cv = dc.get("insecure-registries", list())
+#     if docker_registry in cv:
+#         return
+#     cv.append(docker_registry)
+#     dc["insecure-registries"] = cv
+#
+#     _save_json_file("/etc/docker/daemon.json", dc)
+#
+#     log("Restarting docker service")
+#     service_restart('docker')
 
 
 def _login():
@@ -249,13 +252,13 @@ def config_changed():
     return changed
 
 
-def _render_config():
-    # From https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
-    if len(config.get('no_proxy')) > 2023:
-        raise Exception('no_proxy longer than 2023 chars.')
-    render('docker-proxy.conf', '/etc/systemd/system/docker.service.d/docker-proxy.conf', config)
-    check_call(['systemctl', 'daemon-reload'])
-    service_restart('docker')
+# def _render_config():
+#     # From https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
+#     if len(config.get('no_proxy')) > 2023:
+#         raise Exception('no_proxy longer than 2023 chars.')
+#     render('docker-proxy.conf', '/etc/systemd/system/docker.service.d/docker-proxy.conf', config)
+#     check_call(['systemctl', 'daemon-reload'])
+#     service_restart('docker')
 
 
 def render_logging():

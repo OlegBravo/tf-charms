@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Launch the Guestbook example in Kubernetes. This will use the pod and service
+# definitions from `files/guestbook-example/*.yaml` to launch a leader/follower
+# redis cluster, with a web-front end to collect user data and store in redis.
+# This example app can easily scale across multiple nodes, and exercises the
+# networking, pod creation/scale, service definition, and replica controller of
+# kubernetes.
+#
+# Lifted from github.com/kubernetes/kubernetes/examples/guestbook-example
+
+set -e
+
+if [ ! -d files/guestbook-example ]; then
+  mkdir -p files/guestbook-example
+  curl -o $CHARM_DIR/files/guestbook-example/guestbook-all-in-one.yaml https://raw.githubusercontent.com/kubernetes/kubernetes/master/examples/guestbook/all-in-one/guestbook-all-in-one.yaml
+fi
+
+kubectl create -f files/guestbook-example/guestbook-all-in-one.yaml
+
